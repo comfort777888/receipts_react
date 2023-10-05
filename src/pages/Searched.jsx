@@ -17,7 +17,7 @@ function Searched() {
   };
 
   useEffect(() => {
-    console.log(getSearched(params.search));
+    getSearched(params.search);
   }, [params.search]);
 
   return (

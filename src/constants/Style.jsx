@@ -53,8 +53,18 @@ const Gradient = styled.div`
 const List = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 2rem 0rem;
-  //text-align: center;
+  text-align: center;
+  gap: 2rem;
+
+  @media (max-width: 600px) {
+    gap: 1rem;
+  }
+
+  @media (max-width: 450px) {
+    gap: 0rem;
+  }
 `;
 
 const SLink = styled(NavLink)`
@@ -63,7 +73,6 @@ const SLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin-right: 2rem;
   text-decoration: none;
   background: linear-gradient(35deg, #494949, #313131);
   width: 6rem;
@@ -71,9 +80,25 @@ const SLink = styled(NavLink)`
   cursor: pointer;
   transform: scale(0.8);
 
+  @media (max-width: 600px) {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  @media (max-width: 450px) {
+    width: 4rem;
+    height: 4rem;
+  }
+
   h4 {
     color: white;
     font-size: 0.8rem;
+  }
+
+  @media (max-width: 450px) {
+    h4 {
+      font-size: 0.6rem;
+    }
   }
 
   svg {
@@ -99,6 +124,10 @@ const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 3rem;
+
+  @media (max-width: 450px) {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
 `;
 
 const CuisineCard = styled.div`
@@ -120,6 +149,14 @@ const CuisineCard = styled.div`
 /*Search*/
 const FormStyle = styled.form`
   margin: 0rem 20rem;
+
+  @media (max-width: 1200px) {
+    margin: 0rem 10rem;
+  }
+
+  @media (max-width: 750px) {
+    margin: 0rem;
+  }
 
   div {
     width: 100%;
@@ -148,27 +185,95 @@ const FormStyle = styled.form`
 
 /*Recipe*/
 const DetailWrapper = styled.div`
-  margin-top: 10rem;
+  margin-top: 7rem;
   margin-bottom: 5rem;
   display: flex;
+
+  @media (max-width: 870px) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+  }
 
   .active {
     background: linear-gradient(35deg, #494949, #313131);
     color: white;
   }
 
-  h2 {
-    margin-bottom: 2rem;
-  }
-
   li {
     font-size: 1.2rem;
-    lin e-height: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  @media (max-width: 1200px) {
+    li {
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    h3 {
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
   }
 
   ul {
     margin-top: 2rem;
   }
+`;
+
+const Portrait = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 50%;
+  position: relative;
+
+  h2 {
+    margin-bottom: 2rem;
+    position: absolute;
+    top: 0;
+    left: 2rem;
+  }
+
+  @media (max-width: 870px) {
+    position: static;
+
+    h2 {
+      position: static;
+    }
+  }
+
+  img {
+    object-fit: cover;
+    position: absolute;
+    top: 7rem;
+    left: 0;
+    width: 100%;
+  }
+
+  @media (max-width: 870px) {
+    img {
+      position: static;
+      border-radius: 3%;
+    }
+  }
+`;
+
+const Info = styled.div`
+  margin-left: 7rem;
+
+  @media (max-width: 1200px) {
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 870px) {
+    margin-left: 0rem;
+
 `;
 
 const Button = styled.button`
@@ -178,10 +283,17 @@ const Button = styled.button`
   border: 2px solid black;
   margin-right: 2rem;
   font-weight: 600;
-`;
 
-const Info = styled.div`
-  margin-left: 10rem;
+  @media (max-width: 1200px) {
+    font-size: 0.7rem;
+    margin-right: 1rem;
+  }
+
+  @media (max-width: 870px) {
+    display: block;
+    margin: 1rem auto;
+    width: 15rem;
+  }
 `;
 
 /*Logo*/
@@ -216,4 +328,5 @@ export {
   Info,
   Logo,
   Nav,
+  Portrait,
 };

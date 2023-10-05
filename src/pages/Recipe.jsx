@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { DetailWrapper, Button, Info } from "./../constants/Style";
+import { DetailWrapper, Button, Info, Portrait } from "./../constants/Style";
 
 function Recipe() {
   let params = useParams();
@@ -15,7 +15,7 @@ function Recipe() {
     );
     const detailData = await data.json();
     setDetails(detailData);
-    console.log(detailData);
+    //console.log(detailData);
   };
 
   useEffect(() => {
@@ -24,10 +24,10 @@ function Recipe() {
 
   return (
     <DetailWrapper>
-      <div>
+      <Portrait>
         <h2>{details.title}</h2>
         <img src={details.image} alt={details.title} />
-      </div>
+      </Portrait>
       <Info>
         <Button
           className={activeTab === "instructions" ? "active" : ""}
